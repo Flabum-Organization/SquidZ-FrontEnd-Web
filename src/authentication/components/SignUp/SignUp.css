@@ -1,0 +1,15 @@
+.sign-up-container{
+    width: 50%;
+    height: 100%;
+    background-color: #FFFFFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up-form{
+    background-color: #454545;
+    width: 80%;
+    height: 80%;
+    border-radius: 15px;
+}

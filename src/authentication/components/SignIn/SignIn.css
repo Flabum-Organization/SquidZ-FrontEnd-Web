@@ -1,7 +1,72 @@
 .sign-in-container{
-    background-color: orange;
+    background-color: #FFFFFC;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-in-form{
     background-color: #454545;
+    height: 80%;
+    width: 70%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.logo-squidz__sign-in{
+    width: 200px;
+    height: 200px;
+}
+
+.input-email-container__sign-in {
+    width: 90%;;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.email-input__sign-in, .password-input__sign-in{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 8px;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Comic Neue", cursive;
+}
+
+.input-password-container__sign-in{
+    width: 90%;;
+    height: auto;
+}
+
+
+.buttom-link-container__sign-in{
+
+    width: 50%;
+    margin-top: 20px;
+}
+.buttom-submit__sign-in{
+    height:50px;
+    width: 100%;
+    background-color: #6B9AC4;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Comic Neue", cursive;
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.buttom-submit__sign-in:hover{
+    background-color: #1b7fcc;
+    font-size: 20px;
+    font-weight: bold;
 }

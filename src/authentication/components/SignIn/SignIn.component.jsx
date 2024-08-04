@@ -31,17 +31,25 @@ function SignIn() {
     return <>
         <div className="sign-in-container">
             <form className="sign-in-form" onSubmit={SingInFormSubmit}>
-                <img src="" alt="" className="logo-squidz"/>
+                <img src="../../../../public/logo/logo_squidz.png" alt="" className="logo-squidz__sign-in"/>
 
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <div className="input-email-container__sign-in">
+                    <h2>Correo Electronico</h2>
+                    <input className="email-input__sign-in" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className="input-password-container__sign-in">
+                    <h2>Contraseña</h2>
+                    <input className="password-input__sign-in" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                </div>
 
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-                </button>
-                {error && <p className="error-message">{error}</p>}
-                <h3>¿Aún no tiene una cuenta en SquidZ? <a className="sign-up">Registrarse</a> </h3>
-                <a href="" className="password-forgotten">Olvidé mi contraseña</a>
+                <div className="buttom-link-container__sign-in">
+                    <button className="buttom-submit__sign-in" type="submit">
+                        {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
+                    </button>
+                    {error && <p className="error-message">{error}</p>}
+                    <h5>¿Aún no tiene una cuenta en SquidZ? <a className="sign-up-link">Registrarse</a> </h5>
+                    <a href="" className="password-forgotten">Olvidé mi contraseña</a>
+                </div>
             </form>
         </div>
     </>

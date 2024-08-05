@@ -1,6 +1,6 @@
 import "./SignIn.css"
 import {AuthenticationService} from "../../services/Authentication.service.js";
-import {useEffect,useState} from "react";
+import {useState} from "react";
 import { gsap } from "gsap";
 
 const authenticationService = new AuthenticationService();
@@ -35,12 +35,12 @@ function SignIn({onSignUpClick}) {
             opacity: 0,
             duration: 0.2,
             ease: "power3.inOut",
-            onComplete: onSignUpClick()
+            onComplete: onSignUpClick
         }).to(".sign-in-form",{
             x: 9000,
             duration:0.2
         }).to(".sign-up-form",{
-            delay:0.1,
+            delay:0.4,
             x: 0
         }).to(".sign-up-form", {
             opacity: 1,

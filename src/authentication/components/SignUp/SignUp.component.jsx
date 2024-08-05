@@ -5,7 +5,7 @@ import {gsap} from "gsap";
 
 const authenticationService = new AuthenticationService();
 
-function SignUp({onSignInClick}) {
+function SignUp({onSignInClick, errorSignUp, successSignUp}) {
 
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
@@ -73,16 +73,18 @@ function SignUp({onSignInClick}) {
         e.preventDefault();
         setLoading(true);
 
-        if (!validateName(name) || !validateName(lastName) || !validateEmail(email) || !validatePassword(password) || password !== repeatPassword) {
+        if (!validateName(name) || !validateName(lastName) || !validateEmail(email) || !validateTelephone(telephone) || !validatePassword(password) || password !== repeatPassword) {
             setLoading(false);
+            errorSignUp()
             return;
         }
 
         try {
-            const response = await authenticationService.signUp(name, lastName, email, telephone,password, repeatPassword);
-            console.log(response);
+            await authenticationService.signUp(name, lastName, email, telephone,password, repeatPassword);
+            successSignUp()
+            handleSignInClick(e)
         }catch (error){
-            console.log(error.message);
+            errorSignUp()
         }finally {
             setLoading(false);
         }

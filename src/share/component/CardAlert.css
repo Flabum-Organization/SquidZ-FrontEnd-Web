@@ -9,6 +9,7 @@
     width: auto;
     position: absolute;
     right: -1000px;
+    z-index: 1;
 }
 
 .details{

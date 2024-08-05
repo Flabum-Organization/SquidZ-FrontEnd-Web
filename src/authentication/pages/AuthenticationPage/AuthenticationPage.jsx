@@ -63,6 +63,19 @@ function AuthenticationPage() {
         await moveCardAlert();
     }
 
+    const handleErroSignUp= async() =>{
+        setType('warning');
+        setMessage('Datos Incorrectos')
+        setDetails('Por favor revise que haya ingresado los datos correctamente')
+        await moveCardAlert();
+    }
+
+    const handleSuccessSignUp= async() =>{
+        setType('success');
+        setMessage(`Registrado con éxito`);
+        setDetails('');
+        await moveCardAlert();
+    }
 
     useEffect(() => {
         if (moveImage){
@@ -97,7 +110,7 @@ function AuthenticationPage() {
         <CardAlert type={type} message={message} details={details===''?null:details}></CardAlert>
         <img src="/material/pexels-maksgelatin-4422102.jpg" alt="" className="background-authentication-image"/>
         <div className="background-layer-authentication-image"></div>
-        <SignUp onSignInClick={handleSignInClick} ></SignUp>
+        <SignUp onSignInClick={handleSignInClick } errorSignUp={handleErroSignUp} successSignUp={handleSuccessSignUp}></SignUp>
         <SignIn onSignUpClick={handleSignUpClick} erroSignIn={handleErroSignIn} successSignIn={handleSuccessSignIn}></SignIn>
     </div>
 }

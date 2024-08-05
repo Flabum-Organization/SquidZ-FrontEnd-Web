@@ -15,9 +15,68 @@ function SignUp({onSignInClick}) {
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
 
+
+    const [nameValid, setNameValid] = useState(true);
+    const [lastNameValid, setLastNameValid] = useState(true);
+    const [emailValid, setEmailValid] = useState(true);
+    const [telephoneValid, setTelephoneValid] = useState(true);
+    const [passwordValid, setPasswordValid] = useState(true);
+    const [repeatPasswordValid, setRepeatPasswordValid] = useState(true);
+
+    const validateName = (name) => /^[a-zA-Z\s]+$/.test(name);
+
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    const validatePassword = (password) => {
+        const minLength = /.{8,}/;
+        const hasNumber = /[0-9]/;
+        const hasSpecialChar = /[!@#$%^&*]/;
+        return minLength.test(password) && hasNumber.test(password) && hasSpecialChar.test(password);
+    };
+
+    const validateTelephone = (telephone) => {
+        return /^\d{9}$/.test(telephone);
+    }
+
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+        setNameValid(validateName(e.target.value));
+    };
+
+    const handleLastNameChange = (e) => {
+        setLastName(e.target.value);
+        setLastNameValid(validateName(e.target.value));
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        setEmailValid(validateEmail(e.target.value));
+    };
+
+    const handleTelephoneChange = (e) => {
+        setTelephone(e.target.value);
+        setTelephoneValid(validateTelephone(e.target.value));
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        setPasswordValid(validatePassword(e.target.value));
+    };
+
+    const handleRepeatPasswordChange = (e) => {
+        setRepeatPassword(e.target.value);
+        setRepeatPasswordValid(e.target.value === password);
+    };
+
+
     const SingUpFormSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+
+        if (!validateName(name) || !validateName(lastName) || !validateEmail(email) || !validatePassword(password) || password !== repeatPassword) {
+            setLoading(false);
+            return;
+        }
 
         try {
             const response = await authenticationService.signUp(name, lastName, email, telephone,password, repeatPassword);
@@ -73,42 +132,53 @@ function SignUp({onSignInClick}) {
             <div className="input-name-lastname-container">
                 <div className="input-name-container">
                     <h2>Nombres</h2>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                    <input className={nameValid ? "" : "invalid"} type="text" value={name} onChange={handleNameChange}/>
+                    <p className={nameValid ? "hide-valid-message" : "valid-message"}>Sus nombres no deben tener números ni caracteres especiales</p>
                 </div>
                 <div className="input-lastname-container">
                     <h2>Apellidos</h2>
-                    <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+                    <input className={lastNameValid ? "" : "invalid"} type="text" value={lastName}
+                           onChange={handleLastNameChange}/>
+                    <p className={lastNameValid ? "hide-valid-message" : "valid-message"}>Sus apellidos no deben tener números ni
+                        caracteres especiales</p>
                 </div>
             </div>
 
             <div className="input-email-container">
-                <h2>Correo Electronico</h2>
-                <input className="input-email__sign-up" type="email" value={email}
-                       onChange={(e) => setEmail(e.target.value)}/>
+                <h2>Correo Electrónico</h2>
+                <input className={`input-email__sign-up ${emailValid ? "" : "invalid"}`} type="email" value={email}
+                       onChange={handleEmailChange}/>
+                <p className={emailValid ? "hide-valid-message" : "valid-message"}>Por favor ingrese su correo electrónico correctamente</p>
             </div>
 
             <div className="input-telephone-container">
                 <h2>Teléfono</h2>
-                <input className="input-telephone__sign-up" type="number" value={telephone}
-                       onChange={(e) => setTelephone(e.target.value)}/>
+                <input className={`input-telephone__sign-up ${telephoneValid ? "" : "invalid"}`} type="number"
+                       value={telephone}
+                       onChange={handleTelephoneChange}/>
+                <p className={telephoneValid ? "hide-valid-message" : "valid-message"}>Su número de telefono debe tener 9 dígitos</p>
             </div>
 
 
             <div className="input-password-container">
                 <h2>Contraseña</h2>
-                <input className="input-password__sign-up" type="password" value={password}
-                       onChange={(e) => setPassword(e.target.value)}/>
+                <input className={`input-password__sign-up ${passwordValid ? "" : "invalid"}`} type="password"
+                       value={password}
+                       onChange={handlePasswordChange}/>
+                <p className={passwordValid ? "hide-valid-message" : "valid-message"}>Su contraseña debe tener como mínimo 8 dígitos, al menos 1 número y al menos 1 caracter especial</p>
             </div>
 
             <div className="input-password-repeat-container">
                 <h2>Repetir contraseña</h2>
-                <input className="input-password__sign-up" type="password" value={repeatPassword}
-                       onChange={(e) => setRepeatPassword(e.target.value)}/>
+                <input className={`input-password__sign-up ${repeatPasswordValid ? "" : "invalid"}`} type="password"
+                       value={repeatPassword}
+                       onChange={handleRepeatPasswordChange}/>
+                <p className={repeatPasswordValid ? "hide-valid-message" : "valid-message"}>Las contraseñas deben ser iguales</p>
             </div>
 
             <div className="buttom-link-container__sign-up">
                 <button className="buttom-submit__sign-in" type="submit" disabled={loading}>
-                    {loading ? 'Registrando...' : 'Registrarse'}
+                {loading ? 'Registrando...' : 'Registrarse'}
                 </button>
                 <h5>¿Ya tiene una cuenta en SquidZ? <a className="sign-in-link" onClick={handleSignInClick}>Iniciar sesión</a></h5>
             </div>
@@ -116,6 +186,4 @@ function SignUp({onSignInClick}) {
     </div>
 }
 
-export {
-    SignUp
-};
+export {SignUp};

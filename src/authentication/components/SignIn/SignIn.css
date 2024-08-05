@@ -45,6 +45,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: "League Spartan", sans-serif;
+    outline: none;
 }
 
 .input-password-container__sign-in{

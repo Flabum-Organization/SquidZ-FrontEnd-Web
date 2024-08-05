@@ -10,7 +10,7 @@
 .sign-up-form{
     background-color: #454545;
     width: 70%;
-    height: 80%;
+    height: auto;
     min-width: 490px;
     min-height: 700px;
     border-radius: 15px;
@@ -50,6 +50,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: "League Spartan", sans-serif;
+    outline: none;
 }
 
 .input-email-container, .input-telephone-container ,
@@ -66,9 +67,11 @@
     border-radius: 10px;
     border: none;
     margin-top: 8px;
+    margin-bottom: 10px;
     padding-left: 10px;
     font-size: 18px;
     font-weight: bold;
+    outline: none;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -99,4 +102,20 @@ input[type="number"]::-webkit-inner-spin-button {
 .sign-in-link:hover{
     color: #6B9AC4;
     font-weight: bold;
+}
+
+.invalid {
+    border: 3px solid red !important;
+}
+
+.hide-valid-message {
+    display: none;
+}
+
+.valid-message{
+    display: block;
+    font-weight: normal;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: #ff8800;
 }

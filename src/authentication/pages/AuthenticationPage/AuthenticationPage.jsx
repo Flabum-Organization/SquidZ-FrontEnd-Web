@@ -21,27 +21,23 @@ function AuthenticationPage() {
     useEffect(() => {
         if (moveImage){
             gsap.to(".background-authentication-image", {
-                //x: 1055,
                 left:"50%",
                 duration: 1,
                 ease: "power3.inOut",
             })
             gsap.to(".background-layer-authentication-image", {
-                //x: 1055,
                 left:"50%",
                 duration: 1,
                 ease: "power3.inOut",
             })
         }else {
             gsap.to(".background-authentication-image", {
-                //x: 0,
                 left:0,
                 right: undefined,
                 duration: 1,
                 ease: "power3.inOut",
             })
             gsap.to(".background-layer-authentication-image", {
-                //x: 0,
                 left:0,
                 right: undefined,
                 duration: 1,

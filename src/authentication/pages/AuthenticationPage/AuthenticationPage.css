@@ -4,5 +4,26 @@
     justify-content: space-between;
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
+.background-authentication-image{
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.background-layer-authentication-image{
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    background-color: black;
+    opacity: 0.15;
 }

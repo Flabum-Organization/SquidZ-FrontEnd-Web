@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 
 const authenticationService = new AuthenticationService();
 
-function SignIn({onSignUpClick}) {
+function SignIn({onSignUpClick, erroSignIn, successSignIn}) {
 
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
@@ -16,10 +16,10 @@ function SignIn({onSignUpClick}) {
         setLoading(true);
 
         try {
-            const response = await authenticationService.signIn(email, password);
-            console.log(response);
+            await authenticationService.signIn(email, password);
+            successSignIn();
         }catch (error){
-            console.log(error.message);
+            erroSignIn();
         }finally {
             setLoading(false);
         }
@@ -39,8 +39,10 @@ function SignIn({onSignUpClick}) {
         }).to(".sign-in-form",{
             x: 9000,
             duration:0.2
+        }).from(".sign-up-form",{
+            x:-9000,
         }).to(".sign-up-form",{
-            delay:0.4,
+            opacity: 1,
             x: 0
         }).to(".sign-up-form", {
             opacity: 1,
@@ -52,7 +54,7 @@ function SignIn({onSignUpClick}) {
     return <>
         <div className="sign-in-container">
             <form className="sign-in-form" onSubmit={SingInFormSubmit}>
-                <img src="../../../../public/logo/logo-squidz.svg" alt="" className="logo-squidz__sign-in"/>
+                <img src="/logo/logo-squidz.svg" alt="" className="logo-squidz__sign-in"/>
 
                 <div className="input-email-container__sign-in">
                     <h2>Correo Electronico</h2>

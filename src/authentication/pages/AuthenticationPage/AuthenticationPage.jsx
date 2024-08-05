@@ -3,11 +3,17 @@ import './AuthenticationPage.css'
 import {SignUp} from "../../components/SignUp/SignUp.component.jsx";
 import {gsap} from "gsap"
 import {useEffect, useState} from "react";
+import {CardAlert} from "../../../share/component/CardAlert.component.jsx";
+import {AuthenticationService} from "../../services/Authentication.service.js";
 
+const authenticationService = new AuthenticationService();
 
 function AuthenticationPage() {
 
     const [moveImage, setMoveImage] = useState(false);
+    const [type, setType] = useState('');
+    const [message, setMessage] = useState('');
+    const [details, setDetails] = useState('');
 
     const handleSignUpClick = () => {
         setMoveImage(true);
@@ -16,6 +22,46 @@ function AuthenticationPage() {
     const handleSignInClick = () => {
         setMoveImage(false);
     };
+
+    const moveCardAlert= async ()=>{
+        await gsap.to(".card-alert",{
+            right: 6,
+            duration:0.5,
+            ease: "power3.inOut",
+        })
+        await gsap.to(".card-alert",{
+            delay:5,
+            right: -1000,
+            duration:0.5,
+            ease: "power3.inOut",
+        })
+    }
+
+    const handleErroSignIn= async() =>{
+        setType('warning');
+        setMessage('Credenciales incorrectas')
+        setDetails('Ingrese su correo y su contraseña correctamente')
+        await moveCardAlert();
+    }
+
+    const handleSuccessSignIn= async() =>{
+        try {
+            const user = await authenticationService.getUser();
+            if (user && user.name && user.name.firstName) {
+                setType('success');
+                setMessage(`Bienvenido ${user.name.firstName}`);
+                setDetails('');
+            } else {
+                throw new Error("Invalid user structure");
+            }
+        } catch (error) {
+            console.error("Error fetching user:", error);
+            setType('error');
+            setMessage("Error fetching user information");
+            setDetails(error.message);
+        }
+        await moveCardAlert();
+    }
 
 
     useEffect(() => {
@@ -48,10 +94,11 @@ function AuthenticationPage() {
 
 
     return <div className="authentication-page">
-        <img src="../../../../public/material/pexels-maksgelatin-4422102.jpg" alt="" className="background-authentication-image"/>
+        <CardAlert type={type} message={message} details={details===''?null:details}></CardAlert>
+        <img src="/material/pexels-maksgelatin-4422102.jpg" alt="" className="background-authentication-image"/>
         <div className="background-layer-authentication-image"></div>
-        <SignUp onSignInClick={handleSignInClick}></SignUp>
-        <SignIn onSignUpClick={handleSignUpClick}></SignIn>
+        <SignUp onSignInClick={handleSignInClick} ></SignUp>
+        <SignIn onSignUpClick={handleSignUpClick} erroSignIn={handleErroSignIn} successSignIn={handleSuccessSignIn}></SignIn>
     </div>
 }
 

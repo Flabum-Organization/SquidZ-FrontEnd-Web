@@ -43,10 +43,10 @@ function SignUp({onSignInClick}) {
         }).to(".sign-up-form",{
             x: -9000
         }).to(".sign-in-form",{
+            opacity: 0,
             x: 0
         }).to(".sign-in-form", {
             opacity: 1,
-            delay:0.8,
             duration: 0.2,
             ease: "power3.inOut",
         });
@@ -68,7 +68,7 @@ function SignUp({onSignInClick}) {
 
     return <div className="sign-up-container">
         <form className="sign-up-form" onSubmit={SingUpFormSubmit}>
-            <img src="../../../../public/logo/logo-squidz.svg" alt="" className="logo-squidz__sign-up"/>
+            <img src="/logo/squidzzz%201.svg" alt="" className="logo-squidz__sign-up"/>
 
             <div className="input-name-lastname-container">
                 <div className="input-name-container">

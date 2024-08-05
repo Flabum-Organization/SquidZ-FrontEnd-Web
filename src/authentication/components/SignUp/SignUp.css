@@ -9,7 +9,93 @@
 
 .sign-up-form{
     background-color: #454545;
-    width: 80%;
+    width: 70%;
     height: 80%;
+    min-width: 490px;
+    min-height: 700px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.logo-squidz__sign-up{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.input-name-lastname-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-name-container,
+.input-lastname-container{
+    width: 49%;
+}
+
+.input-name-lastname-container input{
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    margin-top: 8px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "League Spartan", sans-serif;
+}
+
+.input-email-container, .input-telephone-container ,
+.input-password-container, .input-password-repeat-container{
+    width: 90%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.input-email__sign-up, .input-telephone__sign-up,
+.input-password__sign-up{
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 8px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.buttom-link-container__sign-up{
+
+    width: 50%;
+    margin-top: 30px;
+}
+
+.buttom-link-container__sign-up h5{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.sign-in-link{
+    font-weight: normal;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    text-decoration: underline;
+}
+
+.sign-in-link:hover{
+    color: #6B9AC4;
+    font-weight: bold;
 }

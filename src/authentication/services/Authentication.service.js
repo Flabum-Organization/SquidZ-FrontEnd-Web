@@ -8,6 +8,7 @@ export class AuthenticationService {
             {method: "GET", headers: {"Content-Type": "application/json", 'Accept': 'application/json'}, credentials: 'include'});
 
         if (!response.ok) {throw new Error('Authentication returned error.');}
+        console.log(response.json.name);
         return response.json();
 
     }

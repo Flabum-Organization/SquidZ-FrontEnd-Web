@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 
 const authenticationService = new AuthenticationService();
 
-function SignIn({onSignUpClick, erroSignIn, successSignIn}) {
+function SignIn({moveImage,onSignUpClick, erroSignIn, successSignIn}) {
 
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
@@ -31,29 +31,43 @@ function SignIn({onSignUpClick, erroSignIn, successSignIn}) {
 
         var timeline = gsap.timeline();
 
-        timeline.to(".sign-in-form", {
-            opacity: 0,
-            duration: 0.2,
-            ease: "power3.inOut",
-            onComplete: onSignUpClick
-        }).to(".sign-in-form",{
-            x: 9000,
-            duration:0.2
-        }).from(".sign-up-form",{
-            x:-9000,
-        }).to(".sign-up-form",{
-            opacity: 1,
-            x: 0
-        }).to(".sign-up-form", {
-            opacity: 1,
-            duration: 0.2,
-            ease: "power3.inOut",
-        });
+
+        if(window.innerWidth > 1000) {
+            timeline.to(".sign-in-form", {
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.inOut",
+                onComplete: onSignUpClick,
+            }).to(".sign-in-form", {
+                x: 9000,
+                duration: 0.2,
+            }).to(".sign-up-form", {
+                delay:0.5,
+                opacity: 1,
+                x: 0,
+            });
+
+        }else {
+            timeline.to(".sign-in-form", {
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.inOut",
+                onComplete: onSignUpClick
+            }).to(".sign-in-form", {
+                left: "150%",
+                duration: 0.2
+            }).to(".sign-up-form", {
+                opacity: 1,
+                left: "50%",
+            }).to(".sign-up-form", {
+                opacity: 1,
+            });
+        }
     };
 
     return <>
         <div className="sign-in-container">
-            <form className="sign-in-form" onSubmit={SingInFormSubmit}>
+            <form className={`sign-in-form ${moveImage ?'sign-in-form-moveImage-true' : 'sign-in-form-moveImage-false'}`} onSubmit={SingInFormSubmit}>
                 <img src="/logo/logo-squidz.svg" alt="" className="logo-squidz__sign-in"/>
 
                 <div className="input-email-container__sign-in">

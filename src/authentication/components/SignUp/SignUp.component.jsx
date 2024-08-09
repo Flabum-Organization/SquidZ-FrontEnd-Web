@@ -5,7 +5,7 @@ import {gsap} from "gsap";
 
 const authenticationService = new AuthenticationService();
 
-function SignUp({onSignInClick, errorSignUp, successSignUp}) {
+function SignUp({onSignInClick, errorSignUp, successSignUp, moveImage}) {
 
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
@@ -95,40 +95,56 @@ function SignUp({onSignInClick, errorSignUp, successSignUp}) {
         e.preventDefault();
 
         var timeline = gsap.timeline();
+        if(window.innerWidth > 1000) {
+            timeline.to(".sign-up-form", {
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.inOut",
+                onComplete: onSignInClick
+            }).to(".sign-up-form", {
+                x: -9000
 
-        timeline.to(".sign-up-form", {
-            opacity: 0,
-            duration: 0.2,
-            ease: "power3.inOut",
-            onComplete: onSignInClick
-        }).to(".sign-up-form",{
-            x: -9000
-        }).to(".sign-in-form",{
-            opacity: 0,
-            x: 0
-        }).to(".sign-in-form", {
-            opacity: 1,
-            duration: 0.2,
-            ease: "power3.inOut",
-        });
+            }).to(".sign-in-form", {
+                opacity: 1,
+                x: 0,
+                duration: 0.2,
+                ease: "power3.inOut",
+            });
 
-        gsap.to(".sign-up-form", {
-            opacity: 0,
-            duration: 0.2,
-            ease: "power3.inOut",
-            onComplete: onSignInClick
-        });
-        gsap.to(".sign-in-form", {
-            opacity: 1,
-            delay:0.8,
-            duration: 0.2,
-            ease: "power3.inOut",
-        })
+            // gsap.to(".sign-up-form", {
+            //     opacity: 0,
+            //     duration: 0.2,
+            //     ease: "power3.inOut",
+            //     onComplete: onSignInClick
+            // });
+            // gsap.to(".sign-in-form", {
+            //     opacity: 1,
+            //     delay: 0.8,
+            //     duration: 0.2,
+            //     ease: "power3.inOut",
+            // })
+        }else {
+            timeline.to(".sign-up-form", {
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.inOut",
+                onComplete: onSignInClick
+            }).to(".sign-up-form", {
+                left: "-50%"
+            }).to(".sign-in-form", {
+                opacity: 1,
+                left: "50%"
+            }).to(".sign-in-form", {
+                opacity: 1,
+                duration: 0.2,
+                ease: "power3.inOut",
+            });
+        }
     };
 
 
     return <div className="sign-up-container">
-        <form className="sign-up-form" onSubmit={SingUpFormSubmit}>
+        <form className={`sign-up-form ${moveImage ? 'sign-up-form-moveImage-true' : 'sign-up-form-moveImage-false'}`} onSubmit={SingUpFormSubmit}>
             <img src="/logo/squidzzz%201.svg" alt="" className="logo-squidz__sign-up"/>
 
             <div className="input-name-lastname-container">

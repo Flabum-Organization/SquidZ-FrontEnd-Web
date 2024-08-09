@@ -22,6 +22,10 @@
     box-shadow: 5px 5px 20px 1px rgba(0, 0, 0, 0.55);
 }
 
+.sign-in-form-moveImage-false{
+    transform: translate(0px, 0px)!important;
+}
+
 .logo-squidz__sign-in{
     width: 200px;
     height: 200px;
@@ -61,7 +65,7 @@
 }
 
 .buttom-link-container__sign-in h5{
-    font-size: 15px;
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
@@ -99,7 +103,7 @@
 }
 
 .password-forgotten{
-    font-size: 15px;
+    font-size: 1rem;
     color: white;
     font-weight: normal;
     transition: 0.3s ease-in-out;
@@ -109,4 +113,38 @@
 .password-forgotten:hover{
     color: #6B9AC4;
     font-weight: bold;
+}
+
+@media screen and (max-width: 1100px){
+
+    .password-forgotten{
+        font-size: 1rem;
+    }
+
+    .buttom-link-container__sign-in h5{
+        font-size: 1rem;
+    }
+    .sign-in-form{
+        position: absolute;
+        min-width: 50vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        z-index: 1;
+    }
+    .sign-in-form-moveImage-false{
+        left: 50% !important;
+    }
+
+    .sign-in-form-moveImage-true{
+        left: 150% !important;
+    }
+}
+
+@media screen and (max-width: 670px){
+
+    .sign-in-form{
+        min-width: 90vw;
+    }
+
 }

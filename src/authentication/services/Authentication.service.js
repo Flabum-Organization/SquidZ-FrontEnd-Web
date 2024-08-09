@@ -10,8 +10,8 @@ export class AuthenticationService {
         if (!response.ok) {throw new Error('Authentication returned error.');}
         console.log(response.json.name);
         return response.json();
-
     }
+
     async signUp(names, lastnames, email, telephone, password, repeatPassword) {
 
          if (password === repeatPassword) {
@@ -43,7 +43,6 @@ export class AuthenticationService {
          }
          else {throw new Error('Password do not match');}
     }
-
 
     async getUser() {
         const response = await fetch(`${API_BASE_URL}/users/get-user`,

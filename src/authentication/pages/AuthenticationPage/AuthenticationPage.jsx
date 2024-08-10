@@ -24,17 +24,19 @@ function AuthenticationPage() {
     };
 
     const moveCardAlert= async ()=>{
-        await gsap.to(".card-alert",{
+
+        await gsap.to(".card-alert", {
             right: 6,
-            duration:0.5,
+            duration: 0.5,
             ease: "power3.inOut",
         })
-        await gsap.to(".card-alert",{
-            delay:5,
+        await gsap.to(".card-alert", {
+            delay: 5,
             right: -1000,
-            duration:0.5,
+            duration: 0.5,
             ease: "power3.inOut",
         })
+
     }
 
     const handleErroSignIn= async() =>{
@@ -78,40 +80,42 @@ function AuthenticationPage() {
     }
 
     useEffect(() => {
-        if (moveImage){
-            gsap.to(".background-authentication-image", {
-                left:"50%",
-                duration: 1,
-                ease: "power3.inOut",
-            })
-            gsap.to(".background-layer-authentication-image", {
-                left:"50%",
-                duration: 1,
-                ease: "power3.inOut",
-            })
-        }else {
-            gsap.to(".background-authentication-image", {
-                left:0,
-                right: undefined,
-                duration: 1,
-                ease: "power3.inOut",
-            })
-            gsap.to(".background-layer-authentication-image", {
-                left:0,
-                right: undefined,
-                duration: 1,
-                ease: "power3.inOut",
-            })
-        }
+            if (moveImage) {
+                gsap.to(".background-authentication-image", {
+                    left: "50%",
+                    duration: 1,
+                    ease: "power3.inOut",
+                })
+                gsap.to(".background-layer-authentication-image", {
+                    left: "50%",
+                    duration: 1,
+                    ease: "power3.inOut",
+                })
+            } else {
+                gsap.to(".background-authentication-image", {
+                    left: 0,
+                    right: undefined,
+                    duration: 1,
+                    ease: "power3.inOut",
+                })
+                gsap.to(".background-layer-authentication-image", {
+                    left: 0,
+                    right: undefined,
+                    duration: 1,
+                    ease: "power3.inOut",
+                })
+            }
+
+
     }, [moveImage]);
 
 
     return <div className="authentication-page">
         <CardAlert type={type} message={message} details={details===''?null:details}></CardAlert>
-        <img src="/material/pexels-maksgelatin-4422102.jpg" alt="" className="background-authentication-image"/>
+        <img src="/material/pexels-maksgelatin-4422102.jpg" alt="" className={`background-authentication-image`}/>
         <div className="background-layer-authentication-image"></div>
-        <SignUp onSignInClick={handleSignInClick } errorSignUp={handleErroSignUp} successSignUp={handleSuccessSignUp}></SignUp>
-        <SignIn onSignUpClick={handleSignUpClick} erroSignIn={handleErroSignIn} successSignIn={handleSuccessSignIn}></SignIn>
+        <SignUp moveImage={moveImage} onSignInClick={handleSignInClick } errorSignUp={handleErroSignUp} successSignUp={handleSuccessSignUp}></SignUp>
+        <SignIn moveImage={moveImage} onSignUpClick={handleSignUpClick} erroSignIn={handleErroSignIn} successSignIn={handleSuccessSignIn}></SignIn>
     </div>
 }
 

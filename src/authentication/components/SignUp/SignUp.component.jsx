@@ -110,19 +110,6 @@ function SignUp({onSignInClick, errorSignUp, successSignUp, moveImage}) {
                 duration: 0.2,
                 ease: "power3.inOut",
             });
-
-            // gsap.to(".sign-up-form", {
-            //     opacity: 0,
-            //     duration: 0.2,
-            //     ease: "power3.inOut",
-            //     onComplete: onSignInClick
-            // });
-            // gsap.to(".sign-in-form", {
-            //     opacity: 1,
-            //     delay: 0.8,
-            //     duration: 0.2,
-            //     ease: "power3.inOut",
-            // })
         }else {
             timeline.to(".sign-up-form", {
                 opacity: 0,
@@ -198,7 +185,7 @@ function SignUp({onSignInClick, errorSignUp, successSignUp, moveImage}) {
                 <button className="buttom-submit__sign-in" type="submit" disabled={loading}>
                 {loading ? 'Registrando...' : 'Registrarse'}
                 </button>
-                <h5>¿Ya tiene una cuenta en SquidZ? <a className="sign-in-link" onClick={handleSignInClick}>Iniciar sesión</a></h5>
+                <h5>¿Ya tiene una cuenta en SquidZ? <span><a className="sign-in-link" onClick={handleSignInClick}>Iniciar sesión</a></span> </h5>
             </div>
         </form>
     </div>

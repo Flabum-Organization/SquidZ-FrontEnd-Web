@@ -47,13 +47,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-p {
-    font-size: 14px;
-    color: #333;
-    margin-top: 20px;
-    text-align: left; /* Alinear el texto a la izquierda */
-}
-
 p a {
     color: #007bff;
     text-decoration: none;

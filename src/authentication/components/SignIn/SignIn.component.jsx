@@ -2,6 +2,7 @@ import "./SignIn.css"
 import {AuthenticationService} from "../../services/Authentication.service.js";
 import {useState} from "react";
 import { gsap } from "gsap";
+import {useNavigate} from "react-router-dom";
 
 const authenticationService = new AuthenticationService();
 
@@ -10,6 +11,7 @@ function SignIn({moveImage,onSignUpClick, erroSignIn, successSignIn}) {
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const SingInFormSubmit = async (e) => {
         e.preventDefault();
@@ -18,6 +20,7 @@ function SignIn({moveImage,onSignUpClick, erroSignIn, successSignIn}) {
         try {
             await authenticationService.signIn(email, password);
             successSignIn();
+            navigate("/user-management");
         }catch (error){
             erroSignIn();
         }finally {
@@ -30,7 +33,6 @@ function SignIn({moveImage,onSignUpClick, erroSignIn, successSignIn}) {
         e.preventDefault();
 
         var timeline = gsap.timeline();
-
 
         if(window.innerWidth > 1000) {
             timeline.to(".sign-in-form", {

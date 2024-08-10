@@ -3,7 +3,7 @@ import './AuthenticationPage.css'
 import {SignUp} from "../../components/SignUp/SignUp.component.jsx";
 import {gsap} from "gsap"
 import {useEffect, useState} from "react";
-import {CardAlert} from "../../../share/component/CardAlert.component.jsx";
+import {CardAlert} from "../../../share/component/CardAlert/CardAlert.component.jsx";
 import {AuthenticationService} from "../../services/Authentication.service.js";
 
 const authenticationService = new AuthenticationService();
@@ -53,6 +53,8 @@ function AuthenticationPage() {
                 setType('success');
                 setMessage(`Bienvenido ${user.name.firstName}`);
                 setDetails('');
+
+
             } else {
                 throw new Error("Invalid user structure");
             }

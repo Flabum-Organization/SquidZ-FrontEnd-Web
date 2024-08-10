@@ -24,7 +24,6 @@ function AppRoutes() {
             const user = await authService.getUser();
             if (user) {
                 localStorage.setItem('user', JSON.stringify(user));
-                console.log("se ejecuto");
                 navigate("/app");
             } else {
                 localStorage.removeItem('user');

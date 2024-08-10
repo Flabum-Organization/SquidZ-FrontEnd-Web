@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
 import ProfilePage from "./dataUpdate/pages/ProfilePage.jsx";
 import {AuthenticationService} from "./authentication/services/Authentication.service.js";
 import {useEffect} from "react";
+import Application from "./share/pages/Application/application.jsx";
 
 function App() {
 
@@ -24,7 +25,7 @@ function AppRoutes() {
             if (user) {
                 localStorage.setItem('user', JSON.stringify(user));
                 console.log("se ejecuto");
-                navigate("/user-management");
+                navigate("/app");
             } else {
                 localStorage.removeItem('user');
                 navigate("/authentication");
@@ -43,7 +44,7 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/authentication" element={<AuthenticationPage/>} />
-            <Route path="/user-management" element={<ProfilePage/>} />
+            <Route path="/app" element={<Application/>} />
         </Routes>
     );
 }

@@ -1,27 +1,28 @@
-.account-details {
+.account-details-update {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 550px;
-    margin: 0 auto; /* Centrarse en el contenedor */
+    margin: 0 auto;
 }
 
-.account-details h2 {
+.account-details-update__title {
     margin-top: 0;
     font-size: 18px;
     color: #333;
     text-align: center;
+    font-family: "League Spartan", sans-serif;
 }
 
-.form-group {
+.account-details-update__form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.form-group input {
+.account-details-update__form-group input {
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
@@ -29,56 +30,64 @@
     font-size: 14px;
 }
 
-.form-actions {
+.account-details-update__form-actions {
     display: flex;
-    flex-direction: column; /* Coloca los botones en columna */
-    align-items: center; /* Centra los botones */
-    margin-top: 20px; /* Añadir margen superior para separar los botones de los campos de entrada */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
 }
 
-button {
+.account-details-update__button {
+    background-color: #6B9AC4;
+    color: #000000;
+    border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    border: none;
     transition: background-color 0.3s ease;
-    width: 100%; /* Botones ocupan todo el ancho del contenedor */
-    max-width: 200px; /* Ajusta el ancho máximo de los botones */
-    margin-bottom: 10px; /* Espacio entre los botones */
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 200px;
 }
 
-button[type="submit"] {
-    background-color: #6B9AC4;
+.account-details-update__button--cancel {
+    background-color: #ff4d4d;
     color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 200px;
 }
 
-button[type="submit"]:hover {
+.account-details-update__button:hover {
     background-color: #0056b3;
 }
 
-button[type="button"] {
-    background-color: #ff4d4d;
-    color: #000000;
-}
-
-button[type="button"]:hover {
+.account-details-update__button--cancel:hover {
     background-color: #cc0000;
 }
 
-/* Estilos para dispositivos móviles */
+
 @media (max-width: 768px) {
-    .account-details {
+    .account-details-update {
         max-width: 100%;
         padding: 15px;
     }
 
-    .form-actions {
-        width: 100%; /* Asegurar que los botones estén centrados en móviles */
+    .account-details-update__form-actions {
+        width: 100%;
     }
 
-    button {
-        width: 100%; /* Botones ocupan todo el ancho en móviles */
+    .account-details-update__button,
+    .account-details-update__button--cancel {
+        width: 100%;
         padding: 12px;
         font-size: 14px;
     }

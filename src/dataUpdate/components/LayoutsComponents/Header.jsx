@@ -6,15 +6,15 @@ import './Header.css';
 const Header = () => {
     return (
         <header className="header">
-            <div className="header-left">
-                <img src={logo} alt="Logo Squidz" className="logo" />
+            <div className="header__left">
+                <img src={logo} alt="Logo Squidz" className="header__logo" />
             </div>
-            <div className="header-center">
+            <div className="header__center">
                 <h1>SQUIDZ</h1>
             </div>
-            <div className="header-right">
-                <img src={userIcon} alt="Icono de Usuario" className="icon" />
-                <img src={cartIcon} alt="Icono de Carrito" className="icon" />
+            <div className="header__right">
+                <img src={userIcon} alt="Icono de Usuario" className="header__icon" />
+                <img src={cartIcon} alt="Icono de Carrito" className="header__icon" />
             </div>
         </header>
     );

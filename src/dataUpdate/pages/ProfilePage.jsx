@@ -28,26 +28,25 @@ const ProfilePage = () => {
     }, []);
 
     if (loading) {
-        return <div className="loading">Cargando datos...</div>; // Indicador de carga
+        return <div className="profile-page__loading">Cargando datos...</div>; // Indicador de carga
     }
 
     if (error) {
-        return <div className="error">{error}</div>; // Mensaje de error
+        return <div className="profile-page__error">{error}</div>; // Mensaje de error
     }
 
     return (
-        <>
-            <Header />
-            <div className="profile-page">
+
+        <div className="profile-page">
+                <Header />
                 <Sidebar />
-                <main>
-                    <section className="profile">
-                        <ProfilePicture />
-                        <AccountDetails userData={userData} />
-                    </section>
-                </main>
-            </div>
-        </>
+            <main className="profile-page__main">
+                <section className="profile-page__profile">
+                    <ProfilePicture />
+                    <AccountDetails userData={userData} />
+                </section>
+            </main>
+        </div>
     );
 };
 

@@ -1,25 +1,36 @@
 import './Sidebar.css';
 import { useState } from 'react';
-import { FaBars, FaHome, FaCalendarAlt, FaBox } from 'react-icons/fa';
+import { FaBars, FaHome, FaCalendarAlt, FaBox, FaSignOutAlt } from 'react-icons/fa';
 
 const Sidebar = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(true);
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
     };
 
+    const handleLogout = () => {
+        // Aquí puedes manejar el cierre de sesión
+        alert("Cerrando sesión...");
+    };
+
     return (
-        <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-            <div className="sidebar-toggle" onClick={toggleSidebar}>
+        <>
+            <div className="sidebar__toggle" onClick={toggleSidebar}>
                 <FaBars />
             </div>
-            <ul>
-                <li><a href="#"><FaHome /> Inicio</a></li>
-                <li><a href="#"><FaCalendarAlt /> Reserva</a></li>
-                <li><a href="#"><FaBox /> Productos</a></li>
-            </ul>
-        </aside>
+            <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+                <ul className="sidebar__menu">
+                    <li className="sidebar__menu-item"><a href="#" className="sidebar__menu-link"><FaHome /> Inicio</a></li>
+                    <li className="sidebar__menu-item"><a href="#" className="sidebar__menu-link"><FaCalendarAlt /> Reserva</a></li>
+                    <li className="sidebar__menu-item"><a href="#" className="sidebar__menu-link"><FaBox /> Productos</a></li>
+                </ul>
+                <div className="sidebar__logout" onClick={handleLogout}>
+                    <FaSignOutAlt />
+                    <span>Cerrar Sesión</span>
+                </div>
+            </aside>
+        </>
     );
 }
 

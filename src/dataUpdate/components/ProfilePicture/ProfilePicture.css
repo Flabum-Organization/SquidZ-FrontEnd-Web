@@ -7,31 +7,40 @@
     text-align: center;
     width: 100%; /* Ocupa todo el ancho disponible */
     max-width: 350px; /* Ajuste para tamaños de pantalla más grandes */
+    height: 100%;
+    max-height: 350px;
     margin: 0 auto; /* Centrarse en el contenedor */
+    box-sizing: border-box;
+    align-items: center; /* Centrar verticalmente */
+    flex-direction: column; /* Para alinear elementos internos verticalmente */
+    justify-content: center; /* Centra el contenido interno verticalmente */
+    display: flex;
 }
 
-.profile-picture h2 {
+.profile-picture__title {
     margin-top: 0;
     font-size: 18px;
     color: #333;
+    font-family: "League Spartan", sans-serif;
 }
 
-.picture-container {
+.profile-picture__container {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+
 }
 
-.picture-container img {
+.profile-picture__image {
     border-radius: 50%;
     height: 100px;
     width: 100px;
     object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
 }
 
-button {
-    background-color: #007bff;
-    color: #fff;
+.profile-picture__button {
+    background-color: #6B9AC4;
+    color: #000000;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -41,7 +50,7 @@ button {
     font-size: 16px; /* Aumenta el tamaño del texto en el botón */
 }
 
-button:hover {
+.profile-picture__button:hover {
     background-color: #0056b3; /* Oscurece el color al pasar el ratón */
 }
 
@@ -49,15 +58,15 @@ button:hover {
 @media (max-width: 768px) {
     .profile-picture {
         width: 100%; /* Ocupa todo el ancho disponible en móviles */
-        max-width: none; /* Elimina la restricción de ancho máximo */
+         /* Elimina la restricción de ancho máximo */
     }
 
-    .picture-container img {
+    .profile-picture__image {
         height: 80px;
         width: 80px; /* Ajusta el tamaño de la imagen en móviles */
     }
 
-    button {
+    .profile-picture__button {
         padding: 12px;
         font-size: 14px; /* Reducir el tamaño del texto en el botón para móviles */
         white-space: normal; /* Permite que el texto se divida en múltiples líneas si es necesario */

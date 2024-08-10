@@ -1,44 +1,48 @@
+/* Estilos para dispositivos de escritorio */
 .sidebar {
     width: 160px;
     background-color: #333;
     color: #fff;
-    height: 100vh; /* Ajustar para cubrir toda la altura de la pantalla */
+    height: 100vh;
     position: fixed;
-    top: 0; /* El sidebar ahora comienza desde la parte superior */
+    top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    transition: width 0.3s ease;
+    transition: transform 0.3s ease, width 0.3s ease;
     overflow: hidden;
-    z-index: 1100; /* Asegurar que el sidebar esté por encima del header */
+    z-index: 1100;
+    justify-content: space-between; /* Asegurar que el logout esté abajo */
+    font-family: "League Spartan", sans-serif;
 }
 
 .sidebar.collapsed {
-    width: 60px;
+    width: 60px; /* Sidebar colapsado en modo computadora */
 }
 
-.sidebar-toggle {
+.sidebar__toggle {
     cursor: pointer;
     padding: 10px;
     font-size: 24px;
     align-self: center; /* Centrar el botón horizontalmente */
-    margin-bottom: 20px; /* Añadir un margen inferior para separar del contenido */
+    margin-bottom: 20px;
+    display: none; /* Ocultar el botón en modo computadora */
 }
 
-.sidebar ul {
+.sidebar__menu {
     list-style: none;
     padding: 0;
     width: 100%;
-    text-align: center; /* Centrar los ítems del menú */
+    text-align: center;
 }
 
-.sidebar ul li {
+.sidebar__menu-item {
     margin: 20px 0;
 }
 
-.sidebar ul li a {
+.sidebar__menu-link {
     color: #fff;
     font-size: 18px;
     text-decoration: none;
@@ -49,71 +53,75 @@
     white-space: nowrap;
 }
 
-.sidebar ul li a:hover {
+.sidebar__menu-link:hover {
     color: #00aaff;
 }
 
-.sidebar ul li a svg {
+.sidebar__menu-link svg {
     margin-bottom: 5px;
 }
 
-.sidebar.collapsed ul li a {
+.sidebar.collapsed .sidebar__menu-link {
     font-size: 0;
 }
 
-.sidebar.collapsed ul li a svg {
+.sidebar.collapsed .sidebar__menu-link svg {
     font-size: 24px;
 }
 
-/* Responsive design for Sidebar */
+/* Estilo para el botón de cerrar sesión */
+.sidebar__logout {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar__logout:hover {
+    color: #ff4d4d;
+}
+
+.sidebar__logout svg {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Estilos responsivos para dispositivos móviles */
 @media (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: 60px;
-        position: fixed;
-        bottom: 0;
-        top: auto;
-        left: 0;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        padding: 0;
+        width: 200px; /* Ajustar el ancho del sidebar en móviles */
+        transform: translateX(-100%); /* Sidebar inicialmente escondido */
+        z-index: 1100; /* Mantener el sidebar sobre el contenido */
     }
 
     .sidebar.collapsed {
-        height: 60px;
-        width: 60px;
+        transform: translateX(0); /* Mostrar el sidebar cuando no está colapsado */
+        width: 200px;
     }
 
-    .sidebar ul {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
+    .sidebar__toggle {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        display: block; /* Mostrar el botón en modo móvil */
+        cursor: pointer;
+        font-size: 24px;
+        z-index: 1200;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
     }
 
-    .sidebar ul li {
-        margin: 0;
+    .sidebar.collapsed .sidebar__menu-link {
+        font-size: 18px; /* Ajustar el tamaño del texto en modo móvil */
     }
 
-    .sidebar-toggle {
-        display: block;
-    }
-
-    .sidebar.collapsed ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .sidebar.collapsed ul li a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        font-size: 0;
-    }
-
-    .sidebar.collapsed ul li a svg {
+    .sidebar.collapsed .sidebar__menu-link svg {
         font-size: 24px;
     }
 }

@@ -38,10 +38,10 @@ const AccountDetailsUpdate = ({ userData, onCancel, onConfirm }) => {
     };
 
     return (
-        <div className="account-details">
-            <h2>Editar Detalles de la Cuenta</h2>
-            <form onSubmit={handleFormSubmit}>
-                <div className="form-group">
+        <div className="account-details-update">
+            <h2 className="account-details-update__title">Editar Detalles de la Cuenta</h2>
+            <form className="account-details-update__form" onSubmit={handleFormSubmit}>
+                <div className="account-details-update__form-group">
                     <input
                         type="text"
                         placeholder="Nombres"
@@ -55,7 +55,7 @@ const AccountDetailsUpdate = ({ userData, onCancel, onConfirm }) => {
                         onChange={(e) => setLastName(e.target.value)}
                     />
                 </div>
-                <div className="form-group">
+                <div className="account-details-update__form-group">
                     <input
                         type="tel"
                         placeholder="Teléfono"
@@ -63,9 +63,9 @@ const AccountDetailsUpdate = ({ userData, onCancel, onConfirm }) => {
                         onChange={(e) => setPhoneNumber(e.target.value)}
                     />
                 </div>
-                <div className="form-actions">
-                    <button type="submit">Confirmar cambios</button>
-                    <button type="button" onClick={onCancel}>Cancelar</button>
+                <div className="account-details-update__form-actions">
+                    <button type="submit" className="account-details-update__button">Confirmar cambios</button>
+                    <button type="button" className="account-details-update__button--cancel" onClick={onCancel}>Cancelar</button>
                 </div>
             </form>
         </div>
@@ -80,7 +80,7 @@ AccountDetailsUpdate.propTypes = {
         }),
         phoneNumber: PropTypes.shape({
             countryCode: PropTypes.string,
-            number: PropTypes.string // Cambiado a string
+            number: PropTypes.string
         }),
     }).isRequired,
     onCancel: PropTypes.func.isRequired,

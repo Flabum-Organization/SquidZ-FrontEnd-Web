@@ -69,19 +69,19 @@ const AccountDetails = () => {
 
     return (
         <div className="account-details">
-            <h2>Detalles de la Cuenta</h2>
-            <div className="form-group">
+            <h2 className="account-details__title">Detalles de la Cuenta</h2>
+            <div className="account-details__form-group">
                 <input type="text" placeholder="Nombres" value={userData.name.firstName} disabled />
                 <input type="text" placeholder="Apellidos" value={userData.name.lastName} disabled />
             </div>
-            <div className="form-group">
-                <input type="email" placeholder="Correo Electronico" value={userData.emailAddress.address} disabled />
+            <div className="account-details__form-group">
+                <input type="email" placeholder="Correo Electrónico" value={userData.emailAddress.address} disabled />
             </div>
-            <div className="form-group">
+            <div className="account-details__form-group">
                 <input type="tel" placeholder="Teléfono (+51)" value={userData.phoneNumber.number} disabled />
             </div>
-            <button onClick={handleEditClick}>Actualizar Datos</button>
-            <p><a href="#">¿Desea cambiar su contraseña?</a></p>
+            <button className="account-details__button" onClick={handleEditClick}>Actualizar Datos</button>
+            <p className="account-details__password-link"><a href="#">¿Desea cambiar su contraseña?</a></p>
         </div>
     );
 }

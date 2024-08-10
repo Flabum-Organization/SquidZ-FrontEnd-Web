@@ -1,0 +1,85 @@
+.account-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto; /* Centrarse en el contenedor */
+}
+
+.account-details h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column; /* Coloca los botones en columna */
+    align-items: center; /* Centra los botones */
+    margin-top: 20px; /* Añadir margen superior para separar los botones de los campos de entrada */
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Botones ocupan todo el ancho del contenedor */
+    max-width: 200px; /* Ajusta el ancho máximo de los botones */
+    margin-bottom: 10px; /* Espacio entre los botones */
+}
+
+button[type="submit"] {
+    background-color: #6B9AC4;
+    color: #000000;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="button"] {
+    background-color: #ff4d4d;
+    color: #000000;
+}
+
+button[type="button"]:hover {
+    background-color: #cc0000;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .account-details {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .form-actions {
+        width: 100%; /* Asegurar que los botones estén centrados en móviles */
+    }
+
+    button {
+        width: 100%; /* Botones ocupan todo el ancho en móviles */
+        padding: 12px;
+        font-size: 14px;
+    }
+}

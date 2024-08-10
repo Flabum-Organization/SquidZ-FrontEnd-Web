@@ -1,0 +1,91 @@
+.account-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto; /* Centrarse en el contenedor */
+}
+
+.account-details h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #6B9AC4;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    font-size: 16px;
+    margin: 0 auto; /* Centrar el botón */
+    display: block; /* Asegurar que el botón se comporte como un bloque */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para dispositivos de escritorio */
+@media (min-width: 769px) {
+    .account-details {
+        margin-left: 20px;
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .account-details {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .form-group input {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+        white-space: normal;
+        width: auto;
+    }
+}

@@ -1,0 +1,66 @@
+.profile-picture {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 350px; /* Ajuste para tamaños de pantalla más grandes */
+    margin: 0 auto; /* Centrarse en el contenedor */
+}
+
+.profile-picture h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.picture-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.picture-container img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto se divida en líneas en pantallas grandes */
+    font-size: 16px; /* Aumenta el tamaño del texto en el botón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Oscurece el color al pasar el ratón */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .profile-picture {
+        width: 100%; /* Ocupa todo el ancho disponible en móviles */
+        max-width: none; /* Elimina la restricción de ancho máximo */
+    }
+
+    .picture-container img {
+        height: 80px;
+        width: 80px; /* Ajusta el tamaño de la imagen en móviles */
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px; /* Reducir el tamaño del texto en el botón para móviles */
+        white-space: normal; /* Permite que el texto se divida en múltiples líneas si es necesario */
+        width: auto; /* Ajustar el ancho del botón al contenido */
+    }
+}

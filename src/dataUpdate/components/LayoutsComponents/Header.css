@@ -1,0 +1,75 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .logo {
+    height: 50px; /* Aumentar el tamaño del logo */
+    margin-left: 180px;
+}
+
+.header-center h1 {
+    font-size: 28px; /* Aumentar el tamaño de la fuente */
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right .icon {
+    width: 30px; /* Aumentar el tamaño de los íconos */
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.header-right .icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive design for Header */
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+
+    .header-center h1 {
+        display: none; /* Ocultar el texto "SQUIDZ" en dispositivos móviles */
+    }
+
+    .header-left .logo {
+        margin-left: 60px; /* Ajustar el margen del logo en móviles */
+        height: 40px; /* Ajustar el tamaño del logo en móviles */
+    }
+
+    .header-right .icon {
+        width: 30px; /* Mantener los íconos a un tamaño adecuado en móviles */
+        margin-left: 15px;
+    }
+
+    .header-left, .header-right {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .header-left .logo {
+        margin-right: auto;
+    }
+}

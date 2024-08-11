@@ -1,6 +1,7 @@
 import './Sidebar.css';
 import { useState } from 'react';
 import { FaBars, FaHome, FaCalendarAlt, FaBox, FaSignOutAlt } from 'react-icons/fa';
+import { SignOutService } from '../../../share/service/SignOut.service.js'; // Importa el servicio
 
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(true);
@@ -9,9 +10,16 @@ const Sidebar = () => {
         setIsCollapsed(!isCollapsed);
     };
 
-    const handleLogout = () => {
-        // Aquí puedes manejar el cierre de sesión
-        alert("Cerrando sesión...");
+    const handleLogout = async () => {
+        try {
+            const signOutService = new SignOutService();
+            await signOutService.signOut();
+
+            alert("Sesión cerrada con éxito");
+            window.location.reload();
+        } catch (error) {
+            alert("Error al cerrar sesión. Por favor, inténtelo de nuevo.");
+        }
     };
 
     return (

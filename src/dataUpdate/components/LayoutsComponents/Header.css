@@ -5,7 +5,7 @@
     padding: 10px 20px;
     background-color: #fff;
     color: #333;
-    height: 60px;
+    height: 75px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     position: relative;
@@ -22,7 +22,7 @@
 }
 
 .header__center h1 {
-    font-size: 28px; /* Aumentar el tamaño de la fuente */
+    font-size: 35px; /* Aumentar el tamaño de la fuente */
     margin: 0;
     font-weight: bold;
     color: #333;

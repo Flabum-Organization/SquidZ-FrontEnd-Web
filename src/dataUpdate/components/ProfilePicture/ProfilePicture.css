@@ -58,7 +58,7 @@
 @media (max-width: 768px) {
     .profile-picture {
         width: 100%; /* Ocupa todo el ancho disponible en móviles */
-         /* Elimina la restricción de ancho máximo */
+        max-width: none; /* Elimina la restricción de ancho máximo */
     }
 
     .profile-picture__image {

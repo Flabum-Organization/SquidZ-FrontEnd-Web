@@ -4,12 +4,13 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 550px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .account-details-update__title {
     margin-top: 0;
+    margin-bottom: 5px;
     font-size: 18px;
     color: #333;
     text-align: center;
@@ -19,12 +20,12 @@
 .account-details-update__form-group {
     display: flex;
     flex-direction: column;
+    gap: 15px; /* Espaciado uniforme entre las text boxes */
     margin-bottom: 20px;
 }
 
 .account-details-update__form-group input {
     padding: 10px;
-    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
@@ -35,7 +36,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-
+    gap: 10px; /* Espacio entre los botones */
 }
 
 .account-details-update__button {
@@ -47,7 +48,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 16px;
-    margin-bottom: 10px;
     width: 100%;
     max-width: 200px;
 }
@@ -61,7 +61,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 16px;
-    margin-bottom: 10px;
     width: 100%;
     max-width: 200px;
 }
@@ -74,21 +73,20 @@
     background-color: #cc0000;
 }
 
-
 @media (max-width: 768px) {
     .account-details-update {
         max-width: 100%;
-        padding: 15px;
     }
 
-    .account-details-update__form-actions {
-        width: 100%;
+    .account-details-update__form-group input {
+        font-size: 16px;
     }
 
     .account-details-update__button,
     .account-details-update__button--cancel {
-        width: 100%;
         padding: 12px;
         font-size: 14px;
+        white-space: normal;
+        width: 100%;
     }
 }

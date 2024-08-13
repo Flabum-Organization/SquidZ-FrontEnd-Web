@@ -67,6 +67,11 @@ function SignIn({moveImage,onSignUpClick, erroSignIn, successSignIn}) {
         }
     };
 
+    const handleForgotPassword=(e)=>{
+        e.preventDefault();
+        navigate("/recoverAccount");
+    }
+
     return <>
         <div className="sign-in-container">
             <form className={`sign-in-form ${moveImage ?'sign-in-form-moveImage-true' : 'sign-in-form-moveImage-false'}`} onSubmit={SingInFormSubmit}>
@@ -86,7 +91,7 @@ function SignIn({moveImage,onSignUpClick, erroSignIn, successSignIn}) {
                         {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
                     </button>
                     <h5>¿Aún no tiene una cuenta en SquidZ? <a className="sign-up-link" onClick={handleSignUpClick}>Registrarse</a> </h5>
-                    <a href="" className="password-forgotten">Olvidé mi contraseña</a>
+                    <a href="" className="password-forgotten" onClick={handleForgotPassword}>Olvidé mi contraseña</a>
                 </div>
             </form>
         </div>

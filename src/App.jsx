@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
 import {AuthenticationService} from "./authentication/services/Authentication.service.js";
 import {useEffect} from "react";
 import Application from "./share/pages/Application/application.jsx";
+import RecoverAccountPage from "./authentication/pages/RecoverAccount/RecoverAccountPage.jsx";
+import ChangePasswordPage from "./dataUpdate/pages/ChangePasswordPage/ChangePasswordPage.jsx";
 
 function App() {
 
@@ -42,6 +44,8 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/authentication" element={<AuthenticationPage/>} />
+            <Route path="/recoverAccount" element={<RecoverAccountPage/>}/>
+            <Route path="/changePassword" element={<ChangePasswordPage/>} />
             <Route path="/app" element={<Application/>} />
         </Routes>
     );
